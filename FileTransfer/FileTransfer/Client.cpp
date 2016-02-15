@@ -82,6 +82,7 @@ void ClientManager(WPARAM wParam)
 	/* if open file is being pressed */
 	if (LOWORD(wParam) == IDC_FILE && HIWORD(wParam) == BN_CLICKED)
 	{
+		
 		if (OpenFile() == -1)
 			SetWindowText(hStatus, "Invalid File name\n");
 	}
@@ -275,7 +276,9 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
 
 	if (CurrentProtocol == TCP)
 	{
-		TotalBytes = atoi(PacketSize) * tmp;
+		if(SendFile)
+			TotalBytes = atoi(PacketSize) * tmp;
+		TotalBytes = atoi(PacketSize) * atoi(SendTimes);
 		Sleep(TotalBytes * 0.00015);
 		closesocket(SocketInfo->Socket);
 	}
@@ -352,7 +355,7 @@ void SendFile(LPSOCKET_INFORMATION SOCKET_INFO, DWORD PacketSize)
 	pbuf = (char *)malloc(PacketSize);
 	FillSockInfo(SOCKET_INFO, &tmp, PacketSize);
 	SOCKET_INFO->Overlapped.hEvent = WSACreateEvent();
-
+	int c = 0;
 	/* Keeps reading from file */
 	while (!feof(fp))
 	{
@@ -372,6 +375,7 @@ void SendFile(LPSOCKET_INFORMATION SOCKET_INFO, DWORD PacketSize)
 		}
 		/* zero out memory for next round */
 		memset(pbuf, 0, PacketSize);
+		c++;
 	}
 	/* Free memory from heap */
 	free(pbuf);
