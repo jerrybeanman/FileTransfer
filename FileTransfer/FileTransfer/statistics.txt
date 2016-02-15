@@ -2638,3 +2638,15 @@ Packets Recieved: 100
 Total Bytes Recieved: 3000000
 **************************************************
 
+**************************************************
+		TIME: 2016-2-14, 16:20:9
+
+Starting Time Stamp: 266678048
+ msEnding Time Stamp: 266678048
+ msDelay: 107
+ msPacket size: 4096
+Packets Expected: 100
+Packets Recieved: 16
+Total Bytes Recieved: 65536
+**************************************************
+

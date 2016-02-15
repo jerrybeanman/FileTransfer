@@ -85,21 +85,29 @@ BOOL S_TCPSend(LPSOCKET_INFORMATION SOCKET_INFO)
 --------------------------------------------------------------------------------------------------------------------*/
 BOOL S_UDPSend(LPSOCKET_INFORMATION SOCKET_INFO, SOCKADDR_IN * Server)
 {
-	if (sendto(SOCKET_INFO->Socket,		/* Writing socket						*/
-		(SOCKET_INFO->DataBuf.buf),		/* Message content						*/
-		SOCKET_INFO->DataBuf.len,		/* Size of the message					*/
-		0,								/* Bytes that are sent					*/
+	DWORD d;
+	DWORD flags = 0;
+	if (WSASendTo(SOCKET_INFO->Socket,		/* Writing socket						*/
+		&(SOCKET_INFO->DataBuf),		/* Message content						*/
+		1,
+		&d,		/* Size of the message					*/
+		flags,								/* Bytes that are sent					*/
 		(SOCKADDR *)Server,				/* Server socket address structure		*/
-		sizeof(*Server))				/* size of the socket address structure	*/
+		sizeof(*Server),
+		&SOCKET_INFO->Overlapped,
+		NULL)				/* size of the socket address structure	*/
 		< 0)
 	{
-		if (WSAGetLastError() != WSA_IO_PENDING)
+		if (WSAGetLastError() == WSA_IO_PENDING)
 		{
-			return FALSE;
+			WSAWaitForMultipleEvents(1, &SOCKET_INFO->Overlapped.hEvent, FALSE, 100, FALSE);
+			memset(&SOCKET_INFO->Overlapped, '\0', sizeof(WSAOVERLAPPED));
+			SOCKET_INFO->Overlapped.hEvent = WSACreateEvent();
 		}
 	}
 	return TRUE;
 }
+
 
 /*------------------------------------------------------------------------------------------------------------------
 -- FUNCTION:	S_TCPRecieve
