@@ -322,9 +322,6 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 	int client_len = sizeof(client);
 	while (TRUE)
 	{
-		DWORD Flags = 0;
-		SOCKADDR_IN  client;
-		int client_len = sizeof(client);
 
 		if ((i = WSARecvFrom(SocketInfo->Socket,	/* Accepted socket					*/
 			&(SocketInfo->DataBuf),					/* Message buffer to recieve		*/
@@ -348,19 +345,12 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 		}
 
 
-		/* Last Packet recieved */
-		if (SocketInfo->Buffer[0] == '\0' || RecvBytes == 0 || RecvBytes == UINT_MAX)
-		{
-			if (SocketInfo->BytesRECV > 0)
-				TransInfo.PacketsRECV++;
-			break;
-		}
-
 		CircularBuff.BytesRECV = RecvBytes;
 		CBPushBack(&CircularBuff, SocketInfo);
 		WSASetEvent(CircularEvent);
 		TransInfo.PacketsRECV++;
 	}
+	TransInfo.PacketsRECV--;
 	AppendToStatus(hStatus, "Ending Server Thread\n");
 
 	/* End system timer and print out transmission info */
@@ -532,7 +522,6 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 		EndOfTransmission = TRUE;								/* Indicate end of transmission packet				*/
 		return;
 	}
-
 	/* Indicates a first packet arrival */
 	if (TransInfo.PacketSize == 0)
 	{
@@ -547,8 +536,12 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 		/* Update statistics */
 		UpdateTransmission(&TransInfo, BytesTransferred, SI);
 	}
-	/* Update statistics */
-	UpdateTransmission(&TransInfo, BytesTransferred, SI);
+	else
+	{	
+		/* Update statistics */
+		UpdateTransmission(&TransInfo, BytesTransferred, SI);
+	}
+
 
 	/* Post an asynchrounous recieve request, supply ServerRoutine as the completion routine function */
 	if (S_TCPRecieve(SI, TRUE) == FALSE)
@@ -687,7 +680,8 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 				CBPop(&CircularBuff, tmp);
 				SendMessage(hProgress, PBM_DELTAPOS, 10, 0);	/* Increment progress bar */
 				/* Write the packet content to a output file */
-				fwrite(tmp->Buffer, sizeof(char), tmp->DataBuf.len, fp);
+				fprintf(fp, tmp->Buffer);
+				OutputDebugString(tmp->Buffer);
 				ResetEvent(CircularEvent);
 				c++;
 			}
