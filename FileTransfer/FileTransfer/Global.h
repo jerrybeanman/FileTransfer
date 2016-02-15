@@ -18,7 +18,7 @@
 #define PACKET_SIZE			TEXT("60000")
 #define SEND_TIMES			TEXT("100")
 
-#define IP_ADDRESS			TEXT("192.168.0.12")
+#define IP_ADDRESS			TEXT("142.232.50.18")
 #define CIRCULAR_BUF_SIZE	500
 #include <iostream>
 #include <sstream>
