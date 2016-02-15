@@ -82,6 +82,7 @@ void ClientManager(WPARAM wParam)
 	/* if open file is being pressed */
 	if (LOWORD(wParam) == IDC_FILE && HIWORD(wParam) == BN_CLICKED)
 	{
+		
 		if (OpenFile() == -1)
 			SetWindowText(hStatus, "Invalid File name\n");
 	}
@@ -275,7 +276,9 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
 
 	if (CurrentProtocol == TCP)
 	{
-		TotalBytes = atoi(PacketSize) * tmp;
+		if(SendFile)
+			TotalBytes = atoi(PacketSize) * tmp;
+		TotalBytes = atoi(PacketSize) * atoi(SendTimes);
 		Sleep(TotalBytes * 0.00015);
 		closesocket(SocketInfo->Socket);
 	}
@@ -352,11 +355,11 @@ void SendFile(LPSOCKET_INFORMATION SOCKET_INFO, DWORD PacketSize)
 	pbuf = (char *)malloc(PacketSize);
 	FillSockInfo(SOCKET_INFO, &tmp, PacketSize);
 	SOCKET_INFO->Overlapped.hEvent = WSACreateEvent();
-
+	int c = 0;
 	/* Keeps reading from file */
 	while (!feof(fp))
 	{
-
+		SendMessage(hProgress, PBM_STEPIT, 0, 0);	/* Increment progress bar */
 		/* read PackeSize bytes from file */
 		FBytesRead = fread(pbuf, 1, PacketSize, fp);
 		SOCKET_INFO->DataBuf.buf = pbuf;
@@ -372,6 +375,7 @@ void SendFile(LPSOCKET_INFORMATION SOCKET_INFO, DWORD PacketSize)
 		}
 		/* zero out memory for next round */
 		memset(pbuf, 0, PacketSize);
+		c++;
 	}
 	/* Free memory from heap */
 	free(pbuf);
@@ -410,6 +414,7 @@ void SendDummyPackets(LPSOCKET_INFORMATION SOCKET_INFO, DWORD Total, DWORD Packe
 	/* Keep on sending the dummy packet to the socket */
 	for (int i = 0; i < Total; i++)
 	{
+		SendMessage(hProgress, PBM_STEPIT, 0, 0);	/* Increment progress bar */
 		if ((CurrentProtocol == TCP ? S_TCPSend(SOCKET_INFO) :
 			S_UDPSend(SOCKET_INFO, &InternetAddr)) == FALSE)
 		{

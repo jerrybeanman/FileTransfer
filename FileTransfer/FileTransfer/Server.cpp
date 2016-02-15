@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------------------------------------------
 -- SOURCE FILE:	Server.c - Provides the logical functionalities of the server sided service using both TCP and UDP
---							recieve packets or datagrams 
+--							recieve packets or datagrams
 --
 -- PROGRAM:		Protocol Analyzer
 --
@@ -14,31 +14,31 @@
 --				void FillSockInfo(LPSOCKET_INFORMATION SOCKET_INFO)
 --				DWORD WINAPI TimerThread(LPVOID lpParameter)
 --
---				
+--
 -- DATE:		Febuary 6th, 2016
 --
 -- REVISIONS:
 --
--- DESIGNER:	Ruoqi Jia 
+-- DESIGNER:	Ruoqi Jia
 
 -- PROGRAMMER:	Ruoqi Jia
 --
 -- NOTES: Contains the logical functionalities of the server sided service for TCP and UDP connections.
 
 --			General FLow: The ClientManager() listens for user button clicks when in server mode. When the connect button
---				is pressed it transitions into Client(), which handles all the main logic for establishing setups and 
+--				is pressed it transitions into Client(), which handles all the main logic for establishing setups and
 --				connections for both TCP and UDP, depending on which one is selected. A thread is created for both protocols
 --				to service incoming connections and traffics.
---				UDP thread: 
---					Starts streaming for data right away from any source, it waits for a initial message from the client 
---						that contains control information for the transmission, listens for incoming datagrams, then 
+--				UDP thread:
+--					Starts streaming for data right away from any source, it waits for a initial message from the client
+--						that contains control information for the transmission, listens for incoming datagrams, then
 --						calcualtes transmission statistics when the stream of datagrams end.
 --				TCP Accept Thread:
---					It waits for incoming connection from the client, and when it a connection has been successfully 
+--					It waits for incoming connection from the client, and when it a connection has been successfully
 --						established, it signals a dummy event that is being waited on in the TCP server thread.
 --				TCP Server Thread:
---					Waits indefinitely for I/O events from the socket, either a successful recieve call or a client has 
---						been accepted. The TCP uses CallBack Routines to recieve incoming packets. When the transmission 
+--					Waits indefinitely for I/O events from the socket, either a successful recieve call or a client has
+--						been accepted. The TCP uses CallBack Routines to recieve incoming packets. When the transmission
 --						EOT packet has been recieved, the thread calcualtes the transmission stattistics and exit.
 --
 --------------------------------------------------------------------------------------------------------------------*/
@@ -46,7 +46,7 @@
 #include "Server.h"
 #define BUFSIZE 2
 char						str[526];
-SOCKET						AcceptSocket;				/* Socket for accepting clients in TCP					*/				
+SOCKET						AcceptSocket;				/* Socket for accepting clients in TCP					*/
 char *						StrBuff = str; 				/* Display message buffer for status text				*/
 WSAEVENT					AcceptEvent;				/* Dummy event											*/
 BOOL						EndOfTransmission = FALSE;	/* Indicates EOT										*/
@@ -87,9 +87,9 @@ void ServerManager(WPARAM wParam)
 		memset(&TransInfo, 0, sizeof(TransInfo));
 
 		/* If file descriptor is already open, close it*/
-		if(fp != NULL)
+		if (fp != NULL)
 			fclose(fp);
-		
+
 		/* CLose current session incase it's already opened */
 		WSACleanup();
 
@@ -118,8 +118,8 @@ void ServerManager(WPARAM wParam)
 --
 -- RETURNS: void
 --
--- NOTES: Main starting point of the server sided application. It sets up the corresponding socket and address 
---			structure for TCP or UDP (depending on which is selected) and creates the thread needed for them. 		
+-- NOTES: Main starting point of the server sided application. It sets up the corresponding socket and address
+--			structure for TCP or UDP (depending on which is selected) and creates the thread needed for them.
 --------------------------------------------------------------------------------------------------------------------*/
 void Server()
 {
@@ -132,7 +132,7 @@ void Server()
 	DWORD		ServerThreadID;		/* Thread ID for worker thread		*/
 	DWORD		Ret;				/* Return value for session info	*/
 
-	/* Create a WSA v2.2 session */
+									/* Create a WSA v2.2 session */
 	if ((Ret = WSAStartup(MAKEWORD(2, 2), &wsaData)) != 0)
 	{
 		sprintf(StrBuff, "WSAStartup() failed with error %d\n", Ret);
@@ -221,12 +221,12 @@ void Server()
 --
 -- PROGRAMMER:	Ruoqi Jia
 --
--- INTERFACE:	DWORD WINAPI AcceptThread(LPVOID lpParameter) 
+-- INTERFACE:	DWORD WINAPI AcceptThread(LPVOID lpParameter)
 --					LPVOID lpParamter : Pointer to the void listening socket.
 --
--- RETURNS: exit code 
+-- RETURNS: exit code
 --
--- NOTES: Thread created for TCP to accept client. Since this is a blocking call its better to place it in a thread. 
+-- NOTES: Thread created for TCP to accept client. Since this is a blocking call its better to place it in a thread.
 --------------------------------------------------------------------------------------------------------------------*/
 DWORD WINAPI AcceptThread(LPVOID lpParameter)
 {
@@ -261,7 +261,7 @@ DWORD WINAPI AcceptThread(LPVOID lpParameter)
 -- PROGRAMMER:	Ruoqi Jia
 --
 -- INTERFACE:	DWORD WINAPI UDPThread(LPVOID lpParameter)
---					LPVOID lpParamter : pointer to the void accepted socket 					
+--					LPVOID lpParamter : pointer to the void accepted socket
 --
 -- RETURNS: exit code
 --
@@ -274,16 +274,13 @@ DWORD WINAPI AcceptThread(LPVOID lpParameter)
 DWORD WINAPI UDPThread(LPVOID lpParameter)
 {
 	LPSOCKET_INFORMATION	SocketInfo;			/* Socket information for a packet			*/
-	DWORD					RecvBytes;			/* Actual bytes recived from recvfrom()		*/			
+	DWORD					RecvBytes;			/* Actual bytes recived from recvfrom()		*/
 	DWORD					TimerThreadID;		/* ID for the TimerThread					*/
-	DWORD					CircularThreadID;	/* ID for circularIO thread					*/	
+	DWORD					CircularThreadID;	/* ID for circularIO thread					*/
 
-	/* Initialize circular buffer to be size of ten */
+												/* Initialize circular buffer to be size of ten */
 	CBInitialize(&CircularBuff, CIRCULAR_BUF_SIZE, sizeof(SOCKET_INFORMATION));
 
-	/* Create a dummy WSA event for the timer thread to listens for IO events */
-	TimerEvent = WSACreateEvent();
-	
 	CircularEvent = WSACreateEvent();
 
 	/* Open empty file for writing */
@@ -299,7 +296,7 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 
 	/* Initialize socket */
 	SocketInfo->Socket = (SOCKET)lpParameter;
-	
+
 	/* Initialize socket info struc		*/
 	FillSockInfo(SocketInfo);
 
@@ -322,14 +319,11 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 	int client_len = sizeof(client);
 	while (TRUE)
 	{
-		DWORD Flags = 0;
-		SOCKADDR_IN  client;
-		int client_len = sizeof(client);
 
 		if ((i = WSARecvFrom(SocketInfo->Socket,	/* Accepted socket					*/
 			&(SocketInfo->DataBuf),					/* Message buffer to recieve		*/
 			1,										/* Maximum data to recieve			*/
-			&RecvBytes,								/* No modification					*/
+			&CircularBuff.BytesRECV,								/* No modification					*/
 			&Flags,
 			(SOCKADDR *)&client,					/* Server socket address structure		*/
 			&client_len,
@@ -347,28 +341,17 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 				break;
 		}
 
-
-		/* Last Packet recieved */
-		if (SocketInfo->Buffer[0] == '\0' || RecvBytes == 0 || RecvBytes == UINT_MAX)
-		{
-			if (SocketInfo->BytesRECV > 0)
-				TransInfo.PacketsRECV++;
-			break;
-		}
-
-		CircularBuff.BytesRECV = RecvBytes;
 		CBPushBack(&CircularBuff, SocketInfo);
 		WSASetEvent(CircularEvent);
 		TransInfo.PacketsRECV++;
 	}
+	TransInfo.PacketsRECV--;
 	AppendToStatus(hStatus, "Ending Server Thread\n");
 
 	/* End system timer and print out transmission info */
 	QueryPerformanceCounter(&TransInfo.EndTimeStamp);
 
 	SendMessage(hProgress, PBM_STEPIT, 0, 0);	/* Increment progress bar */
-
-	PrintTransmission(&TransInfo);
 
 	/* CLose the socket */
 	closesocket(SocketInfo->Socket);
@@ -395,8 +378,8 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 -- RETURNS: exit code
 --
 -- NOTES: Thread created to service incoming TCP traffics for the server. It initializes the SOCKET_INFORMATION structure,
---			which will be used to store packet information from the client. The thread waits on the Accept Thread 
---			to signal an successful client connection before it starts reading. When the event occured, WsaRecv() is 
+--			which will be used to store packet information from the client. The thread waits on the Accept Thread
+--			to signal an successful client connection before it starts reading. When the event occured, WsaRecv() is
 --			called and a completion routine function is supplied to handle arriving packets.
 --------------------------------------------------------------------------------------------------------------------*/
 DWORD WINAPI TCPThread(LPVOID lpParameter)
@@ -405,7 +388,7 @@ DWORD WINAPI TCPThread(LPVOID lpParameter)
 	LPSOCKET_INFORMATION	SocketInfo;		/* Accepting Socket information			*/
 	WSAEVENT				EventArray[1];	/* Accept event to wait on				*/
 	DWORD					Index;			/* Event index							*/
-	TimerEvent = WSACreateEvent();
+
 	fp = fopen("ouput.txt", "w");			/* Open empty file for writing			*/
 
 	EventArray[0] = AcceptEvent;			/* Save accept event in the event array */
@@ -436,7 +419,7 @@ DWORD WINAPI TCPThread(LPVOID lpParameter)
 			{
 				if (SocketInfo->BytesRECV > 0)					/* If threre are remaining bytes left	*/
 				{
-					TransInfo.PacketsRECV += ceil(SocketInfo->BytesRECV / TransInfo.PacketSize);	
+					TransInfo.PacketsRECV += ceil(SocketInfo->BytesRECV / TransInfo.PacketSize);
 				}
 				PrintTransmission(&TransInfo);					/* Print out statistics					*/
 				EndOfTransmission = FALSE;						/* Reset flag							*/
@@ -494,20 +477,20 @@ DWORD WINAPI TCPThread(LPVOID lpParameter)
 --
 -- PROGRAMMER:	Ruoqi Jia
 --
--- INTERFACE:	void CALLBACK ServerRoutine(DWORD Error, 
---											DWORD BytesTransferred, 
---											LPWSAOVERLAPPED Overlapped, 
+-- INTERFACE:	void CALLBACK ServerRoutine(DWORD Error,
+--											DWORD BytesTransferred,
+--											LPWSAOVERLAPPED Overlapped,
 --											DWORD InFlags)
 --					DWORD			Error				: Error code
 --					DOWRD			BytesTransffered	: Total bytes recieved from packet
 --					LPWSAOVERLAPPED	Overlapped			: Overlapped structure
---					DWORD			InFlags				: Modification flags 
+--					DWORD			InFlags				: Modification flags
 --
 -- RETURNS: void
 --
--- NOTES: Callback completion routine for WSARecv when a packet has been recieved. It checks for the arrival of an 
+-- NOTES: Callback completion routine for WSARecv when a packet has been recieved. It checks for the arrival of an
 --			control message specifying the transmission context and fills in the corresponding info, and checkes for the
---			EOT packet. The fuction recursively calls WSARecv with itself as the completion routine to read more 
+--			EOT packet. The fuction recursively calls WSARecv with itself as the completion routine to read more
 --			packets.
 --------------------------------------------------------------------------------------------------------------------*/
 void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
@@ -516,7 +499,7 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 	LPSOCKET_INFORMATION SI;				/* Pointer to the socket info struct			*/
 	SI = (LPSOCKET_INFORMATION)Overlapped;	/* Cast Overlapped struct to SocketInfo struct	*/
 
-	/* Check for error */
+											/* Check for error */
 	if (Error != 0)
 	{
 		sprintf(StrBuff, "I/O operation failed with error %d\n", Error);
@@ -525,18 +508,16 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 	}
 
 	/* If no bytes recieved or sent */
-	if ( SI->Buffer[0] == '\0')
+	if (SI->Buffer[0] == '\0' || BytesTransferred == 0)
 	{
 		AppendToStatus(hStatus, "Closing Socket\n");
 		QueryPerformanceCounter(&TransInfo.EndTimeStamp);		/* Get the ending time stamp for this transmission	*/
 		EndOfTransmission = TRUE;								/* Indicate end of transmission packet				*/
 		return;
 	}
-	DWORD TimerThreadID;
 	/* Indicates a first packet arrival */
 	if (TransInfo.PacketSize == 0)
 	{
-		CreateThread(NULL, 0, TimerThread, (LPVOID)SI, 0, &TimerThreadID);
 		/* Store packet size and expected packets */
 		sscanf(SI->DataBuf.buf, "%d.%d", &TransInfo.PacketSize, &TransInfo.PacketsExpected);
 
@@ -548,9 +529,11 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 		/* Update statistics */
 		UpdateTransmission(&TransInfo, BytesTransferred, SI);
 	}
-	SetEvent(TimerEvent);
-	/* Update statistics */
-	UpdateTransmission(&TransInfo, BytesTransferred, SI);
+	else
+	{
+		/* Update statistics */
+		UpdateTransmission(&TransInfo, BytesTransferred, SI);
+	}
 
 	/* Post an asynchrounous recieve request, supply ServerRoutine as the completion routine function */
 	if (S_TCPRecieve(SI, TRUE) == FALSE)
@@ -573,12 +556,12 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 -- PROGRAMMER:	Ruoqi Jia
 --
 -- INTERFACE:	void GetInitialMessage(LPSOCKET_INFORMATION SocketInfo)
---					LPSOCKET_INFORMATION	SocketInfo : socket to read from 
+--					LPSOCKET_INFORMATION	SocketInfo : socket to read from
 --
 -- RETURNS: exit code
 --
 -- NOTES: Used by the UDP thread to wait on an initial message containing the control context of the transmission.
---			when the message is recieved, the corresponding variables are stored into the TRANSMISSION_INFORMATION structure 
+--			when the message is recieved, the corresponding variables are stored into the TRANSMISSION_INFORMATION structure
 --------------------------------------------------------------------------------------------------------------------*/
 void GetInitialMessage(LPSOCKET_INFORMATION SocketInfo)
 {
@@ -643,7 +626,7 @@ void FillSockInfo(LPSOCKET_INFORMATION SOCKET_INFO)
 --
 -- RETURNS: void
 --
--- NOTES: Sets a timer for the UDP thread. If a packet didnt arrive in the given time it will timeout and close the 
+-- NOTES: Sets a timer for the UDP thread. If a packet didnt arrive in the given time it will timeout and close the
 --			socket. It is used for when packets are dropped due to the nature of UDP and we need to determine if there
 --			are anymore incoming traffics coming in to determine the end of transmission.
 --------------------------------------------------------------------------------------------------------------------*/
@@ -675,7 +658,7 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 	e[0] = CircularEvent;
 	while (TRUE)
 	{
-		ret = WSAWaitForMultipleEvents(1, e, FALSE, 1000, FALSE);
+		ret = WSAWaitForMultipleEvents(1, e, FALSE, 100, FALSE);
 		if (ret == WSA_WAIT_TIMEOUT)
 		{
 			PrintTransmission(&TransInfo);					/* Print out statistics					*/
@@ -684,14 +667,14 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 			fclose(fp);
 			return FALSE;
 		}
-		if(ret != WAIT_IO_COMPLETION)
+		if (ret != WAIT_IO_COMPLETION)
 		{
 			while (CircularBuff.Count != 0)
 			{
 				CBPop(&CircularBuff, tmp);
 				SendMessage(hProgress, PBM_DELTAPOS, 10, 0);	/* Increment progress bar */
-				/* Write the packet content to a output file */
-				fwrite(tmp->Buffer, sizeof(char), tmp->DataBuf.len, fp);
+																/* Write the packet content to a output file */
+				fprintf(fp, tmp->Buffer);
 				ResetEvent(CircularEvent);
 			}
 		}
