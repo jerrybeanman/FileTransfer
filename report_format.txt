@@ -1,9 +1,67 @@
 title page
 table of contents
 executive summary
+	Outlines analysis / findings
+	
 intro
+	This is blah blah blah, and does blah blah blah
+	SS of program
+	usage of program
+	
 analysis / findings
-	-graphs 
-	-descriptive 
+    WAN:
+	TCP:
+		- 4096k 100 times and 60k 100 times ss
+		- analysis on speed
+		- analysis on accuracy
+		- analysis on reliability
+    	UDP:
+		- 4096 100 times and 60k 100 times ss
+		- analysis on speed 
+		- analysis on accuracy
+		-analysis on Reliability
+	TCP and UDP comparision
+    LAN:
+	TCP:
+		- 4096k 100 times and 60k 100 times ss
+		- analysis on speed
+		- analysis on accuracy
+		- analysis on reliability
+    	UDP:
+		- 4096 100 times and 60k 100 times ss
+		- analysis on speed 
+		- analysis on accuracy
+		-analysis on Reliability
+	TCP and UDP comparision
+    WAN and LAN comparision
+    
+    TCP and UDP comparision
+	UDP:
+		Trouble: Writing too fast, data is recived and stored on the stack before data processing is done
+		Resolution: Use circular buffer and thread the data processing
+		
+		Trouble: Client with async writing too fast on the socket, next packet is sent out to socket before the fist one is finished
+		Resolution: use WSAWaitForMultipleEvent after first one is sent if the return error is IO_PENDING, memset overlapped and WSACreateEvent()
+		
+		If sending and recieving from the same computer, data rate is SUPER fast (2 g/s)
+	TCP:
+		Very reliable, pretty much 100% guarentted packets recieved
+		Almost same speed as UDP under the same network (sending between 2 computers)
+
+    General
+	Socket programming is really fast if done correctly
+	WIN32 GUI events takes a huge cut in the speed of socket programming, had to thread it
+	Importance of data structure (Circular Buffer)
+	Data processing is VERY slow
+
 conclusion
+	Very fun assignment, learned a lot with the extra time from extension
+	If done right, this could be a very powerful program
+	Socket programming is good
+	windows is bad
+	completion routine is fast
+	UDP is super fast when sending and recieing from same compuer
+	TCP and UDP is almost the same speed under the same network
+	most packet drops are caused by stack overflow on the server
+
 references 
