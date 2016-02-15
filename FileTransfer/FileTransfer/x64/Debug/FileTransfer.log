@@ -1,2 +1,6 @@
-﻿  FileTransfer.vcxproj -> C:\Users\Jerry\Dropbox\BCIT_CST\Term_4\4985\ProtocolAnalyzer\FileTransfer\x64\Debug\FileTransfer.exe
+﻿  Server.cpp
+c:\users\jerry\dropbox\bcit_cst\term_4\4985\protocolanalyzer\filetransfer\filetransfer\server.cpp(278): warning C4101: 'TimerThreadID': unreferenced local variable
+c:\users\jerry\dropbox\bcit_cst\term_4\4985\protocolanalyzer\filetransfer\filetransfer\server.cpp(321): warning C4101: 'client': unreferenced local variable
+c:\users\jerry\dropbox\bcit_cst\term_4\4985\protocolanalyzer\filetransfer\filetransfer\server.cpp(439): warning C4244: '+=': conversion from 'double' to 'DWORD', possible loss of data
+  FileTransfer.vcxproj -> C:\Users\Jerry\Dropbox\BCIT_CST\Term_4\4985\ProtocolAnalyzer\FileTransfer\x64\Debug\FileTransfer.exe
   FileTransfer.vcxproj -> C:\Users\Jerry\Dropbox\BCIT_CST\Term_4\4985\ProtocolAnalyzer\FileTransfer\x64\Debug\FileTransfer.pdb (Partial PDB)

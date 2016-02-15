@@ -405,7 +405,7 @@ DWORD WINAPI TCPThread(LPVOID lpParameter)
 	LPSOCKET_INFORMATION	SocketInfo;		/* Accepting Socket information			*/
 	WSAEVENT				EventArray[1];	/* Accept event to wait on				*/
 	DWORD					Index;			/* Event index							*/
-
+	TimerEvent = WSACreateEvent();
 	fp = fopen("ouput.txt", "w");			/* Open empty file for writing			*/
 
 	EventArray[0] = AcceptEvent;			/* Save accept event in the event array */
@@ -525,17 +525,18 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 	}
 
 	/* If no bytes recieved or sent */
-	if (BytesTransferred == 0 || SI->Buffer[0] == '\0')
+	if ( SI->Buffer[0] == '\0')
 	{
 		AppendToStatus(hStatus, "Closing Socket\n");
 		QueryPerformanceCounter(&TransInfo.EndTimeStamp);		/* Get the ending time stamp for this transmission	*/
 		EndOfTransmission = TRUE;								/* Indicate end of transmission packet				*/
 		return;
 	}
-
+	DWORD TimerThreadID;
 	/* Indicates a first packet arrival */
 	if (TransInfo.PacketSize == 0)
 	{
+		CreateThread(NULL, 0, TimerThread, (LPVOID)SI, 0, &TimerThreadID);
 		/* Store packet size and expected packets */
 		sscanf(SI->DataBuf.buf, "%d.%d", &TransInfo.PacketSize, &TransInfo.PacketsExpected);
 
@@ -547,6 +548,7 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 		/* Update statistics */
 		UpdateTransmission(&TransInfo, BytesTransferred, SI);
 	}
+	SetEvent(TimerEvent);
 	/* Update statistics */
 	UpdateTransmission(&TransInfo, BytesTransferred, SI);
 
@@ -655,7 +657,8 @@ DWORD WINAPI TimerThread(LPVOID lpParameter)
 	{
 		if (WSAWaitForMultipleEvents(1, e, FALSE, 100, FALSE) == WSA_WAIT_TIMEOUT)
 		{
-			closesocket(SOCKET_INFO->Socket);
+			EndOfTransmission = TRUE;
+			WSACloseEvent(e[0]);
 			return FALSE;
 		}
 		WSAResetEvent(e[0]);
@@ -672,9 +675,10 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 	e[0] = CircularEvent;
 	while (TRUE)
 	{
-		ret = WSAWaitForMultipleEvents(1, e, FALSE, 100, FALSE);
+		ret = WSAWaitForMultipleEvents(1, e, FALSE, 1000, FALSE);
 		if (ret == WSA_WAIT_TIMEOUT)
 		{
+			PrintTransmission(&TransInfo);					/* Print out statistics					*/
 			CBFree(&CircularBuff);
 			free(tmp);
 			fclose(fp);
@@ -689,7 +693,6 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 				/* Write the packet content to a output file */
 				fwrite(tmp->Buffer, sizeof(char), tmp->DataBuf.len, fp);
 				ResetEvent(CircularEvent);
-				c++;
 			}
 		}
 	}
