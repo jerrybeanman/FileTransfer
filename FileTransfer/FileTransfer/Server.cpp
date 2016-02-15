@@ -355,8 +355,6 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 
 	SendMessage(hProgress, PBM_STEPIT, 0, 0);	/* Increment progress bar */
 
-	PrintTransmission(&TransInfo);
-
 	/* CLose the socket */
 	closesocket(SocketInfo->Socket);
 
@@ -662,7 +660,7 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 	e[0] = CircularEvent;
 	while (TRUE)
 	{
-		ret = WSAWaitForMultipleEvents(1, e, FALSE, 1000, FALSE);
+		ret = WSAWaitForMultipleEvents(1, e, FALSE, 100, FALSE);
 		if (ret == WSA_WAIT_TIMEOUT)
 		{
 			PrintTransmission(&TransInfo);					/* Print out statistics					*/
