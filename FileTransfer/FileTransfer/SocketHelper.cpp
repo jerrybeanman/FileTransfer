@@ -299,7 +299,7 @@ void UpdateTransmission(LPTRANSMISSION_INFORMATION TRANS_INFO, DWORD BytesReciev
 	}
 
 	/* Write the packet content to a output file */
-	fprintf(fp, SOCKET_INFO->DataBuf.buf);
+	fprintf(fp, SOCKET_INFO->Buffer);
 }
 
 /*------------------------------------------------------------------------------------------------------------------

@@ -2638,3 +2638,735 @@ Packets Recieved: 100
 Total Bytes Recieved: 3000000
 **************************************************
 
+**************************************************
+		TIME: 2016-2-14, 13:52:49
+
+Starting Time Stamp: -1046008688
+ msEnding Time Stamp: -1046008688
+ msDelay: 25
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 28
+Total Bytes Recieved: 1680000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 13:52:56
+
+Starting Time Stamp: -941482168
+ msEnding Time Stamp: -941482168
+ msDelay: 41
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 13:54:45
+
+Starting Time Stamp: 1641237856
+ msEnding Time Stamp: 1641237856
+ msDelay: 113
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 13:55:7
+
+Starting Time Stamp: 1874612824
+ msEnding Time Stamp: 1874612824
+ msDelay: 59
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:0:3
+
+Starting Time Stamp: 259951592
+ msEnding Time Stamp: 259951592
+ msDelay: 6431
+ msPacket size: 60000
+Packets Expected: 10000
+Packets Recieved: 10000
+Total Bytes Recieved: 600000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:5:52
+
+Starting Time Stamp: 728804856
+ msEnding Time Stamp: 728804856
+ msDelay: 114
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:6:1
+
+Starting Time Stamp: 3105784
+ msEnding Time Stamp: 3105784
+ msDelay: 53
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:6:22
+
+Starting Time Stamp: 785093528
+ msEnding Time Stamp: 785093528
+ msDelay: 6231
+ msPacket size: 60000
+Packets Expected: 10000
+Packets Recieved: 10000
+Total Bytes Recieved: 600000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:8:10
+
+Starting Time Stamp: 385976368
+ msEnding Time Stamp: 385976368
+ msDelay: 51
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 48
+Total Bytes Recieved: 2880000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:8:15
+
+Starting Time Stamp: 11025184
+ msEnding Time Stamp: 11025184
+ msDelay: 53
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:8:33
+
+Starting Time Stamp: -1967653960
+ msEnding Time Stamp: -1967653960
+ msDelay: 502
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 52
+Total Bytes Recieved: 3120000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:9:20
+
+Starting Time Stamp: 2019503976
+ msEnding Time Stamp: 2019503976
+ msDelay: 499
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 52
+Total Bytes Recieved: 3120000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:9:33
+
+Starting Time Stamp: -492483984
+ msEnding Time Stamp: -492483984
+ msDelay: 544
+ msPacket size: 2000
+Packets Expected: 1645
+Packets Recieved: 1610
+Total Bytes Recieved: 3220000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:11:17
+
+Starting Time Stamp: 1507247928
+ msEnding Time Stamp: 1507247928
+ msDelay: 393
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:12:41
+
+Starting Time Stamp: -1755188720
+ msEnding Time Stamp: -1755188720
+ msDelay: 498
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 52
+Total Bytes Recieved: 3120000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:17:6
+
+Starting Time Stamp: -1052872928
+ msEnding Time Stamp: -1052872928
+ msDelay: 34299
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 3
+Total Bytes Recieved: 180000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:17:46
+
+Starting Time Stamp: -1202156616
+ msEnding Time Stamp: -1202156616
+ msDelay: 3911
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 3
+Total Bytes Recieved: 180000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:18:27
+
+Starting Time Stamp: -711063016
+ msEnding Time Stamp: -711063016
+ msDelay: 11214
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 6
+Total Bytes Recieved: 360000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:22:18
+
+Starting Time Stamp: -2107131888
+ msEnding Time Stamp: -2107131888
+ msDelay: 42
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:22:47
+
+Starting Time Stamp: -2128944104
+ msEnding Time Stamp: -2128944104
+ msDelay: 39
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 42
+Total Bytes Recieved: 2520000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:23:31
+
+Starting Time Stamp: -1199712872
+ msEnding Time Stamp: -1199712872
+ msDelay: 42
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:44:9
+
+Starting Time Stamp: 1766346512
+ msEnding Time Stamp: 1766346512
+ msDelay: 6473
+ msPacket size: 60000
+Packets Expected: 10000
+Packets Recieved: 10000
+Total Bytes Recieved: 600000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:44:42
+
+Starting Time Stamp: -890497184
+ msEnding Time Stamp: -890497184
+ msDelay: 6433
+ msPacket size: 60000
+Packets Expected: 10000
+Packets Recieved: 10000
+Total Bytes Recieved: 600000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:45:33
+
+Starting Time Stamp: 943754384
+ msEnding Time Stamp: 943754384
+ msDelay: 111
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:46:47
+
+Starting Time Stamp: -1702784192
+ msEnding Time Stamp: -1702784192
+ msDelay: 42
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:48:32
+
+Starting Time Stamp: -1252449576
+ msEnding Time Stamp: -1252449576
+ msDelay: 22
+ msPacket size: 1000
+Packets Expected: 3291
+Packets Recieved: 1131
+Total Bytes Recieved: 1131000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 14:48:46
+
+Starting Time Stamp: 609434464
+ msEnding Time Stamp: 609434464
+ msDelay: 27
+ msPacket size: 1000
+Packets Expected: 3291
+Packets Recieved: 2687
+Total Bytes Recieved: 2687000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:8:53
+
+Starting Time Stamp: 2001066176
+ msEnding Time Stamp: 2001066176
+ msDelay: 390
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:10:48
+
+Starting Time Stamp: -2081588576
+ msEnding Time Stamp: -2081588576
+ msDelay: 359
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:10:58
+
+Starting Time Stamp: -296699648
+ msEnding Time Stamp: -296699648
+ msDelay: 111
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:24:13
+
+Starting Time Stamp: -1759552768
+ msEnding Time Stamp: -1759552768
+ msDelay: 362
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:25:0
+
+Starting Time Stamp: -364718128
+ msEnding Time Stamp: -364718128
+ msDelay: 498
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 52
+Total Bytes Recieved: 3120000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:25:49
+
+Starting Time Stamp: -1106334192
+ msEnding Time Stamp: -1106334192
+ msDelay: 4216
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 52
+Total Bytes Recieved: 3120000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:27:31
+
+Starting Time Stamp: 854778424
+ msEnding Time Stamp: 854778424
+ msDelay: 495
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 53
+Total Bytes Recieved: 3180000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:28:24
+
+Starting Time Stamp: -1053821416
+ msEnding Time Stamp: -1053821416
+ msDelay: 488
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:29:12
+
+Starting Time Stamp: 0
+ msEnding Time Stamp: 0
+ msDelay: 0
+ msPacket size: 0
+Packets Expected: 0
+Packets Recieved: 0
+Total Bytes Recieved: 0
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:29:29
+
+Starting Time Stamp: -1899849920
+ msEnding Time Stamp: -1899849920
+ msDelay: 501
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 53
+Total Bytes Recieved: 3180000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 15:29:54
+
+Starting Time Stamp: 1340227416
+ msEnding Time Stamp: 1340227416
+ msDelay: 482
+ msPacket size: 60000
+Packets Expected: 54
+Packets Recieved: 54
+Total Bytes Recieved: 3240000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:22:5
+
+Starting Time Stamp: -1612090368
+ msEnding Time Stamp: -1612090368
+ msDelay: 112
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:22:17
+
+Starting Time Stamp: 933184264
+ msEnding Time Stamp: 933184264
+ msDelay: 17
+ msPacket size: 100
+Packets Expected: 4096
+Packets Recieved: 2445
+Total Bytes Recieved: 244500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:22:33
+
+Starting Time Stamp: -2109309584
+ msEnding Time Stamp: -2109309584
+ msDelay: 5
+ msPacket size: 4096
+Packets Expected: 100
+Packets Recieved: 52
+Total Bytes Recieved: 212992
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:22:49
+
+Starting Time Stamp: -73664840
+ msEnding Time Stamp: -73664840
+ msDelay: 107
+ msPacket size: 4096
+Packets Expected: 100
+Packets Recieved: 16
+Total Bytes Recieved: 65536
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:23:9
+
+Starting Time Stamp: 92837720
+ msEnding Time Stamp: 92837720
+ msDelay: 112
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:23:17
+
+Starting Time Stamp: 1651205944
+ msEnding Time Stamp: 1651205944
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:23:23
+
+Starting Time Stamp: -1431986536
+ msEnding Time Stamp: -1431986536
+ msDelay: 108
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 17
+Total Bytes Recieved: 69615
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:23:27
+
+Starting Time Stamp: -1558602424
+ msEnding Time Stamp: -1558602424
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:23:38
+
+Starting Time Stamp: 245658208
+ msEnding Time Stamp: 245658208
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:23:42
+
+Starting Time Stamp: -1488638680
+ msEnding Time Stamp: -1488638680
+ msDelay: 110
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 19
+Total Bytes Recieved: 77805
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:23:47
+
+Starting Time Stamp: -984219864
+ msEnding Time Stamp: -984219864
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:7
+
+Starting Time Stamp: -1666450304
+ msEnding Time Stamp: -1666450304
+ msDelay: 108
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 17
+Total Bytes Recieved: 69615
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:10
+
+Starting Time Stamp: -43752896
+ msEnding Time Stamp: -43752896
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:13
+
+Starting Time Stamp: 71518512
+ msEnding Time Stamp: 71518512
+ msDelay: 10
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 66
+Total Bytes Recieved: 270270
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:16
+
+Starting Time Stamp: 1474119920
+ msEnding Time Stamp: 1474119920
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:28
+
+Starting Time Stamp: -1370956040
+ msEnding Time Stamp: -1370956040
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 29
+Total Bytes Recieved: 118755
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:41
+
+Starting Time Stamp: 2047341296
+ msEnding Time Stamp: 2047341296
+ msDelay: 8
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:45
+
+Starting Time Stamp: -928607592
+ msEnding Time Stamp: -928607592
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:48
+
+Starting Time Stamp: -1137253480
+ msEnding Time Stamp: -1137253480
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:52
+
+Starting Time Stamp: 782109928
+ msEnding Time Stamp: 782109928
+ msDelay: 10
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 70
+Total Bytes Recieved: 286650
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:55
+
+Starting Time Stamp: -670413960
+ msEnding Time Stamp: -670413960
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:24:58
+
+Starting Time Stamp: -812645552
+ msEnding Time Stamp: -812645552
+ msDelay: 105
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 19
+Total Bytes Recieved: 77805
+**************************************************
+
+**************************************************
+		TIME: 2016-2-14, 16:25:2
+
+Starting Time Stamp: -1360538440
+ msEnding Time Stamp: -1360538440
+ msDelay: 7
+ msPacket size: 4095
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 409500
+**************************************************
+

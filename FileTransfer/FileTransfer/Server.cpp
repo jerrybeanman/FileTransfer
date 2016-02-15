@@ -346,8 +346,7 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 			if (WSAWaitForMultipleEvents(1, &SocketInfo->Overlapped.hEvent, FALSE, 100, FALSE) == WAIT_TIMEOUT)
 				break;
 		}
-		/* Signal packet read to the Timer thread */
-		//WSASetEvent(TimerEvent);
+
 
 		/* Last Packet recieved */
 		if (SocketInfo->Buffer[0] == '\0' || RecvBytes == 0 || RecvBytes == UINT_MAX)
@@ -439,6 +438,7 @@ DWORD WINAPI TCPThread(LPVOID lpParameter)
 				{
 					TransInfo.PacketsRECV += ceil(SocketInfo->BytesRECV / TransInfo.PacketSize);	
 				}
+				PrintTransmission(&TransInfo);					/* Print out statistics					*/
 				EndOfTransmission = FALSE;						/* Reset flag							*/
 				closesocket(SocketInfo->Socket);				/* Close current socket					*/
 				memset(&TransInfo, 0, sizeof(TransInfo));		/* Zero out transmission struct			*/
@@ -528,9 +528,8 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 	if (BytesTransferred == 0 || SI->Buffer[0] == '\0')
 	{
 		AppendToStatus(hStatus, "Closing Socket\n");
-		QueryPerformanceCounter(&TransInfo.EndTimeStamp);			/* Get the ending time stamp for this transmission	*/
-		EndOfTransmission = TRUE;						/* Indicate end of transmission packet				*/
-		PrintTransmission(&TransInfo);					/* Print out statistics								*/
+		QueryPerformanceCounter(&TransInfo.EndTimeStamp);		/* Get the ending time stamp for this transmission	*/
+		EndOfTransmission = TRUE;								/* Indicate end of transmission packet				*/
 		return;
 	}
 
@@ -545,12 +544,11 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 		SendMessage(hProgress, PBM_SETRANGE, 0, MAKELPARAM(0, TransInfo.PacketsExpected * 10));
 		/* Get the starting time stamp for this transmisssion */
 		QueryPerformanceCounter(&TransInfo.StartTimeStamp);
-	}
-	else
-	{
 		/* Update statistics */
 		UpdateTransmission(&TransInfo, BytesTransferred, SI);
 	}
+	/* Update statistics */
+	UpdateTransmission(&TransInfo, BytesTransferred, SI);
 
 	/* Post an asynchrounous recieve request, supply ServerRoutine as the completion routine function */
 	if (S_TCPRecieve(SI, TRUE) == FALSE)
@@ -689,7 +687,7 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 				CBPop(&CircularBuff, tmp);
 				SendMessage(hProgress, PBM_DELTAPOS, 10, 0);	/* Increment progress bar */
 				/* Write the packet content to a output file */
-				fwrite(tmp->DataBuf.buf, sizeof(char), tmp->DataBuf.len, fp);
+				fwrite(tmp->Buffer, sizeof(char), tmp->DataBuf.len, fp);
 				ResetEvent(CircularEvent);
 				c++;
 			}
