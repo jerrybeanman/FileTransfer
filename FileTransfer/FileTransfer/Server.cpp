@@ -323,7 +323,7 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 		if ((i = WSARecvFrom(SocketInfo->Socket,	/* Accepted socket					*/
 			&(SocketInfo->DataBuf),					/* Message buffer to recieve		*/
 			1,										/* Maximum data to recieve			*/
-			&CircularBuff.BytesRECV,								/* No modification					*/
+			&CircularBuff.BytesRECV,				/* No modification					*/
 			&Flags,
 			(SOCKADDR *)&client,					/* Server socket address structure		*/
 			&client_len,
@@ -346,18 +346,21 @@ DWORD WINAPI UDPThread(LPVOID lpParameter)
 		TransInfo.PacketsRECV++;
 	}
 	TransInfo.PacketsRECV--;
-	AppendToStatus(hStatus, "Ending Server Thread\n");
 
 	/* End system timer and print out transmission info */
 	QueryPerformanceCounter(&TransInfo.EndTimeStamp);
 
-	SendMessage(hProgress, PBM_STEPIT, 0, 0);	/* Increment progress bar */
+	PrintTransmission(&TransInfo);					/* Print out statistics					*/
+
+
 
 	/* CLose the socket */
 	closesocket(SocketInfo->Socket);
 
 	/* Free socket and close session */
 	WSACleanup();
+
+	AppendToStatus(hStatus, "Ending Server Thread\n");
 
 	return TRUE;
 }
@@ -507,14 +510,6 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 		return;
 	}
 
-	/* If no bytes recieved or sent */
-	if (SI->Buffer[0] == '\0' || BytesTransferred == 0)
-	{
-		AppendToStatus(hStatus, "Closing Socket\n");
-		QueryPerformanceCounter(&TransInfo.EndTimeStamp);		/* Get the ending time stamp for this transmission	*/
-		EndOfTransmission = TRUE;								/* Indicate end of transmission packet				*/
-		return;
-	}
 	/* Indicates a first packet arrival */
 	if (TransInfo.PacketSize == 0)
 	{
@@ -528,13 +523,19 @@ void CALLBACK ServerRoutine(DWORD Error, DWORD BytesTransferred,
 		QueryPerformanceCounter(&TransInfo.StartTimeStamp);
 		/* Update statistics */
 		UpdateTransmission(&TransInfo, BytesTransferred, SI);
-	}
-	else
+	}else
 	{
 		/* Update statistics */
 		UpdateTransmission(&TransInfo, BytesTransferred, SI);
 	}
 
+	if (SI->Buffer[0] == '\0' || BytesTransferred == 0 || TransInfo.PacketsRECV == TransInfo.PacketsExpected)
+	{
+		AppendToStatus(hStatus, "Closing Socket\n");
+		QueryPerformanceCounter(&TransInfo.EndTimeStamp);		/* Get the ending time stamp for this transmission	*/
+		EndOfTransmission = TRUE;								/* Indicate end of transmission packet				*/
+		return;
+	}
 	/* Post an asynchrounous recieve request, supply ServerRoutine as the completion routine function */
 	if (S_TCPRecieve(SI, TRUE) == FALSE)
 	{
@@ -661,7 +662,6 @@ DWORD WINAPI CircularIO(LPVOID lpParameter)
 		ret = WSAWaitForMultipleEvents(1, e, FALSE, 100, FALSE);
 		if (ret == WSA_WAIT_TIMEOUT)
 		{
-			PrintTransmission(&TransInfo);					/* Print out statistics					*/
 			CBFree(&CircularBuff);
 			free(tmp);
 			fclose(fp);

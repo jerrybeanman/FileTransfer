@@ -377,17 +377,21 @@ void WriteTransmission(LPTRANSMISSION_INFORMATION TRANS_INFO, char * FileName)
 	FILE * fp;
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
+	long d = delay(TRANS_INFO->StartTimeStamp, TRANS_INFO->EndTimeStamp);
+	DWORD tBytes = TRANS_INFO->PacketsRECV * TRANS_INFO->PacketSize;
+	float datarate = ((float)((float)tBytes / (float)1000000) / (float)((float)d / (float)1000));
 
 	fp = fopen(FileName, "a");
 	fprintf(fp, "**************************************************\n");
 	fprintf(fp, "		TIME: %d-%d-%d, %d:%d:%d\n\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-	fprintf(fp, "Starting Time Stamp: %d\n ms", TRANS_INFO->StartTimeStamp.QuadPart * 1000);
-	fprintf(fp, "Ending Time Stamp: %d\n ms", TRANS_INFO->StartTimeStamp.QuadPart * 1000);
-	fprintf(fp, "Delay: %d\n ms", delay(TRANS_INFO->StartTimeStamp, TRANS_INFO->EndTimeStamp));
+	fprintf(fp, "Starting Time Stamp: %d\n ms", TRANS_INFO->StartTimeStamp.QuadPart);
+	fprintf(fp, "Ending Time Stamp: %d\n ms", TRANS_INFO->EndTimeStamp.QuadPart * 1000);
+	fprintf(fp, "Delay: %d\n ms", d);
 	fprintf(fp, "Packet size: %d\n", TRANS_INFO->PacketSize);
 	fprintf(fp, "Packets Expected: %d\n", TRANS_INFO->PacketsExpected);
 	fprintf(fp, "Packets Recieved: %d\n", TRANS_INFO->PacketsRECV);
-	fprintf(fp, "Total Bytes Recieved: %d\n", TRANS_INFO->PacketsRECV * TRANS_INFO->PacketSize);
+	fprintf(fp, "Total Bytes Recieved: %d\n", tBytes);
+	fprintf(fp, "Data Rate: %.2f mb/s \n", datarate);
 	fprintf(fp, "**************************************************\n\n");
 	
 	fclose(fp);

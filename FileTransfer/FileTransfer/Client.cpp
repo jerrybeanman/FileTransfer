@@ -274,14 +274,6 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
 	/* Send last packet to indicate end of transmission */
 	SendLastPacket(SocketInfo);
 
-	if (CurrentProtocol == TCP)
-	{
-		if(SendFile)
-			TotalBytes = atoi(PacketSize) * tmp;
-		TotalBytes = atoi(PacketSize) * atoi(SendTimes);
-		Sleep(TotalBytes * 0.00015);
-		closesocket(SocketInfo->Socket);
-	}
 	AppendToStatus(hStatus, "End of Transmission...Closing session\n");
 	return TRUE;
 }
@@ -414,7 +406,7 @@ void SendDummyPackets(LPSOCKET_INFORMATION SOCKET_INFO, DWORD Total, DWORD Packe
 	/* Keep on sending the dummy packet to the socket */
 	for (int i = 0; i < Total; i++)
 	{
-		SendMessage(hProgress, PBM_STEPIT, 0, 0);	/* Increment progress bar */
+		//SendMessage(hProgress, PBM_STEPIT, 0, 0);	/* Increment progress bar */
 		if ((CurrentProtocol == TCP ? S_TCPSend(SOCKET_INFO) :
 			S_UDPSend(SOCKET_INFO, &InternetAddr)) == FALSE)
 		{

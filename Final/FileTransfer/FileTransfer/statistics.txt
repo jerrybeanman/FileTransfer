@@ -1,0 +1,403 @@
+**************************************************
+		TIME: 2016-2-15, 6:59:54
+
+Starting Time Stamp: -966379788
+ msEnding Time Stamp: -1724453696
+ msDelay: 1059
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 5.67 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:0:17
+
+Starting Time Stamp: -908212953
+ msEnding Time Stamp: -1143856544
+ msDelay: 340
+ msPacket size: 1024
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 102400
+Data Rate: 0.30 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:0:58
+
+Starting Time Stamp: -807706117
+ msEnding Time Stamp: 1203587648
+ msDelay: 597
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 10.05 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:1:4
+
+Starting Time Stamp: -793216928
+ msEnding Time Stamp: -1548250536
+ msDelay: 572
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 10.49 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:1:17
+
+Starting Time Stamp: -761723423
+ msEnding Time Stamp: 24608392
+ msDelay: 631
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 9.51 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:1:27
+
+Starting Time Stamp: -747133015
+ msEnding Time Stamp: -407885384
+ msDelay: 5040
+ msPacket size: 60000
+Packets Expected: 1000
+Packets Recieved: 1000
+Total Bytes Recieved: 60000000
+Data Rate: 11.90 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:2:25
+
+Starting Time Stamp: -594488390
+ msEnding Time Stamp: -1421861152
+ msDelay: 148
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 40.54 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:2:28
+
+Starting Time Stamp: -587029225
+ msEnding Time Stamp: 1730360552
+ msDelay: 143
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 41.96 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:2:30
+
+Starting Time Stamp: -582670253
+ msEnding Time Stamp: 1817841256
+ msDelay: 152
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 39.47 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:3:51
+
+Starting Time Stamp: -384395449
+ msEnding Time Stamp: -1743577656
+ msDelay: 164
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 36.59 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:3:57
+
+Starting Time Stamp: -371614761
+ msEnding Time Stamp: -1898534544
+ msDelay: 143
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 41.96 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:4:9
+
+Starting Time Stamp: -340514128
+ msEnding Time Stamp: -750286616
+ msDelay: 189
+ msPacket size: 60000
+Packets Expected: 1000
+Packets Recieved: 976
+Total Bytes Recieved: 58560000
+Data Rate: 309.84 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:4:19
+
+Starting Time Stamp: -317083128
+ msEnding Time Stamp: 2138460904
+ msDelay: 571
+ msPacket size: 60000
+Packets Expected: 10000
+Packets Recieved: 9368
+Total Bytes Recieved: 562080000
+Data Rate: 984.38 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:6:39
+
+Starting Time Stamp: 23191077
+ msEnding Time Stamp: 2093341520
+ msDelay: 154
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 38.96 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:6:43
+
+Starting Time Stamp: 34821032
+ msEnding Time Stamp: 813164632
+ msDelay: 144
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 41.67 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:6:50
+
+Starting Time Stamp: 50481581
+ msEnding Time Stamp: -802199552
+ msDelay: 104
+ msPacket size: 1024
+Packets Expected: 100
+Packets Recieved: 63
+Total Bytes Recieved: 64512
+Data Rate: 0.62 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:6:53
+
+Starting Time Stamp: 57179193
+ msEnding Time Stamp: 1590850152
+ msDelay: 101
+ msPacket size: 1024
+Packets Expected: 100
+Packets Recieved: 64
+Total Bytes Recieved: 65536
+Data Rate: 0.65 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:7:3
+
+Starting Time Stamp: 81713870
+ msEnding Time Stamp: 827299376
+ msDelay: 294
+ msPacket size: 1024
+Packets Expected: 10000
+Packets Recieved: 8337
+Total Bytes Recieved: 8537088
+Data Rate: 29.04 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:7:16
+
+Starting Time Stamp: 114013369
+ msEnding Time Stamp: -1211454992
+ msDelay: 303
+ msPacket size: 1024
+Packets Expected: 10000
+Packets Recieved: 9848
+Total Bytes Recieved: 10084352
+Data Rate: 33.28 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:7:55
+
+Starting Time Stamp: 208771666
+ msEnding Time Stamp: -1290968504
+ msDelay: 160
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 95
+Total Bytes Recieved: 5700000
+Data Rate: 35.63 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:8:0
+
+Starting Time Stamp: 220807864
+ msEnding Time Stamp: 2132472904
+ msDelay: 150
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 40.00 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:8:5
+
+Starting Time Stamp: 233318335
+ msEnding Time Stamp: 1646500016
+ msDelay: 105
+ msPacket size: 1024
+Packets Expected: 100
+Packets Recieved: 63
+Total Bytes Recieved: 64512
+Data Rate: 0.61 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:8:11
+
+Starting Time Stamp: 246938169
+ msEnding Time Stamp: -1449290168
+ msDelay: 295
+ msPacket size: 1024
+Packets Expected: 10000
+Packets Recieved: 9929
+Total Bytes Recieved: 10167296
+Data Rate: 34.47 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:9:47
+
+Starting Time Stamp: 481627102
+ msEnding Time Stamp: 672118848
+ msDelay: 33
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: -1
+Total Bytes Recieved: -60000
+Data Rate: 130148.70 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:9:51
+
+Starting Time Stamp: 493202039
+ msEnding Time Stamp: -669192040
+ msDelay: 20
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: -1
+Total Bytes Recieved: -60000
+Data Rate: 214745.36 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:10:29
+
+Starting Time Stamp: 585168647
+ msEnding Time Stamp: 1432517744
+ msDelay: 155
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 92
+Total Bytes Recieved: 5520000
+Data Rate: 35.61 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:10:33
+
+Starting Time Stamp: 594698995
+ msEnding Time Stamp: -1919022144
+ msDelay: 156
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 38.46 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:10:37
+
+Starting Time Stamp: 603150963
+ msEnding Time Stamp: -2069229736
+ msDelay: 151
+ msPacket size: 60000
+Packets Expected: 100
+Packets Recieved: 100
+Total Bytes Recieved: 6000000
+Data Rate: 39.74 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:10:49
+
+Starting Time Stamp: 633164721
+ msEnding Time Stamp: -2061210808
+ msDelay: 176
+ msPacket size: 60000
+Packets Expected: 1000
+Packets Recieved: 978
+Total Bytes Recieved: 58680000
+Data Rate: 333.41 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:10:56
+
+Starting Time Stamp: 650148782
+ msEnding Time Stamp: -1348199992
+ msDelay: 548
+ msPacket size: 60000
+Packets Expected: 10000
+Packets Recieved: 9968
+Total Bytes Recieved: 598080000
+Data Rate: 1091.39 mb/s 
+**************************************************
+
+**************************************************
+		TIME: 2016-2-15, 7:11:32
+
+Starting Time Stamp: 737120223
+ msEnding Time Stamp: -283940912
+ msDelay: 545
+ msPacket size: 60000
+Packets Expected: 10000
+Packets Recieved: 9376
+Total Bytes Recieved: 562560000
+Data Rate: 1032.22 mb/s 
+**************************************************
+
