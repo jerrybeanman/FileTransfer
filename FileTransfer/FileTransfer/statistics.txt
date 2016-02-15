@@ -2639,6 +2639,7 @@ Total Bytes Recieved: 3000000
 **************************************************
 
 **************************************************
+<<<<<<< HEAD
 		TIME: 2016-2-14, 13:52:49
 
 Starting Time Stamp: -1046008688
@@ -3135,6 +3136,12 @@ Total Bytes Recieved: 212992
 
 Starting Time Stamp: -73664840
  msEnding Time Stamp: -73664840
+=======
+		TIME: 2016-2-14, 16:20:9
+
+Starting Time Stamp: 266678048
+ msEnding Time Stamp: 266678048
+>>>>>>> 7989f87ce0adae2546a436db594859c003aa314e
  msDelay: 107
  msPacket size: 4096
 Packets Expected: 100
@@ -3142,6 +3149,7 @@ Packets Recieved: 16
 Total Bytes Recieved: 65536
 **************************************************
 
+<<<<<<< HEAD
 **************************************************
 		TIME: 2016-2-14, 16:23:9
 
@@ -3370,3 +3378,5 @@ Packets Recieved: 100
 Total Bytes Recieved: 409500
 **************************************************
 
+=======
+>>>>>>> 7989f87ce0adae2546a436db594859c003aa314e

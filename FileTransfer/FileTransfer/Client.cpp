@@ -351,6 +351,8 @@ void SendFile(LPSOCKET_INFORMATION SOCKET_INFO, DWORD PacketSize)
 	/* Allocate memory for buffer and initialize SOCKET_INFO */
 	pbuf = (char *)malloc(PacketSize);
 	FillSockInfo(SOCKET_INFO, &tmp, PacketSize);
+	SOCKET_INFO->Overlapped.hEvent = WSACreateEvent();
+
 	/* Keeps reading from file */
 	while (!feof(fp))
 	{
@@ -403,6 +405,7 @@ void SendDummyPackets(LPSOCKET_INFORMATION SOCKET_INFO, DWORD Total, DWORD Packe
 
 	/* Initialize SOCKET_INFO structure	with the dummy packet */
 	FillSockInfo(SOCKET_INFO, &buffer, PacketSize);
+	SOCKET_INFO->Overlapped.hEvent = WSACreateEvent();
 
 	/* Keep on sending the dummy packet to the socket */
 	for (int i = 0; i < Total; i++)
